@@ -1,11 +1,5 @@
 # ASP.NET
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'Azure for Students(1)(5b0cbfff-2ccd-44b7-88dc-766b1a62a1b3)'
-    appType: 'webApp'
-    WebAppName: 'ThisisPracticeWIN'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+
 # Build and test ASP.NET projects.
 # Add steps that publish symbols, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
@@ -39,3 +33,12 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Azure for Students(1)(5b0cbfff-2ccd-44b7-88dc-766b1a62a1b3)'
+    appType: 'webApp'
+    WebAppName: 'ThisisPracticeWIN'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
